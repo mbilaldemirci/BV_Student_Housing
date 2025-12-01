@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My House</title>
+    <link rel="icon"
+        type="image/jpeg"
+        href="{{ url_for('static', filename='images/25.11.14 favicon.jpg') }}">
+    <link rel="stylesheet" 
+        href="style.css">  <!-- USES STYLE.CSS FROM BISERA -->
+
+</head>
+<body>
+<div class="navbar">
+        <div class="icon">  
+            <h2 class="logo">student housing</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">CALENDAR</a></li>
+                <li><a href="#">MY HOUSE</a></li>
+                <li><a href="#">CHAT</a></li>
+                <li><a href="#">REGISTER</a></li>
+                <li><a href="#">LOG IN</a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <input class="srch" type="search" placeholder="Type to text">
+            <button class="btn">Search</button>
+        </div>
+    </div>
+
+<div class="about-section">
+
+<h1 class="title" style="text-align: center; font-family: Verdana;">My house</h1> <br><br>
+
+<div class="text">
+    <h2 class="title" style="font-family: Verdana;">Address:</h2>
+    <p style = "font-size: large;">{{ address.street }}, {{ address.postcode }}, {{ address.city }}</p>
+</div>
+
+<div class="text">
+    <h2 class="title" style="font-family: Verdana;">Your roommates:</h2>
+    <ul>
+        <li>{{ tenant.firstName }} {{ tenant.lastName }}</li>
+        <li>{{ tenant.firstName }} {{ tenant.lastName }}</li>
+        <li>{{ tenant.firstName }} {{ tenant.lastName }}</li>
+    </ul>   
+</div>
+
+<div class="text">
+    <h2 class="title" style="font-family: Verdana;">Flat Inventory:</h2>
+    <ul style="alignment-baseline: center;">
+        <li>{{ address.itemAmount }} {{ address.item }}</li>
+        <li>{{ address.itemAmount }} {{ address.item }}</li>
+        <li>{{ address.itemAmount }} {{ address.item }}</li>
+        <li>{{ address.itemAmount }} {{ address.item }}</li>
+    </ul>
+</div>
+</div>
+
+</body>
+</html>
