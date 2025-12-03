@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM Section</title>
+  <link rel="stylesheet" href="dm.css">
+</head>
+<body>
+  <header>📩 Direct Messages</header>
+
+  <!-- WRAPPER -->
+  <div class="dm-wrapper">
+
+    <!-- SOL KULLANICI PANELİ -->
+    <div class="user-list" id="userList">
+      <h3>Users</h3>
+      <div class="user-item active">Landlord</div>
+      <div class="user-item">John</div>
+      <div class="user-item">Emma</div>
+    </div>
+
+    <!-- ANA DM BÖLÜMÜ -->
+    <div class="dm-container">
+      
+      <div class="chat-box" id="chatBox"></div>
+
+      <div class="input-area">
+        <input type="text" id="msgInput" placeholder="Type your message...">
+
+        <input type="file" id="fileUpload" style="display:none;" 
+        accept=".pdf,.png,.jpg,.jpeg,.doc,.docx,.txt">
+
+        <button onclick="uploadFile()">📎</button>
+        <button onclick="sendMessage()">Send</button>
+      </div>
+
+      <div class="request-section">
+        <button id="requestBtn" onclick="makeRequest()">🎉 Make a Special Request</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="dm.js"></script>
+</body>
+</html>
