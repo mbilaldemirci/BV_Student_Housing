@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Main page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+   
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">Student housing</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">CALENDAR</a></li>
+                <li><a href="#">MY HOUSE</a></li>
+                <li><a href="#">CHAT</a></li>
+                <li><a href="#">REGISTER</a></li>
+                <li><a href="#">LOG IN</a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <input class="srch" type="search" placeholder="Type to text">
+            <button class="btn">Search</button>
+        </div>
+    </div>
+
+   
+    <div class="main">
+        <div class="content">
+            <h1>Housing <br><span>For</span><br>Students</h1>
+        
+            <button class="cn"><a href="#">JOIN US</a></button>
+           
+            
+        </div>
+    </div>
+    <section class="about-section">
+    <div class="text-changer">
+    <p class="intro-text">Our webpage will assure you 
+    <span class="oprt-container">
+      <span class="oprt">Security.</span>
+      <span class="oprt"> Reliance.</span>
+      <span class="oprt"> Communication.</span>
+      <span class="oprt"> Quality.</span>
+      <span class="oprt">Comfort.</span>
+      </span>
+      </p>
+ <p class="info-sub">
+                This is our website for students and people who are living in shared households. 
+                Our mission is to make living easier and equal for everyone!
+            </p>
+    
+      </div>
+   
+
+  <section class="stats-section">
+    <h2 class="stats title">Our community in Numbers </h2>
+
+      <div class="stats-row">
+
+        <div class="stats-box">
+            <h3 class="stat-number" data-target="500">0</h3>
+            <p class="stat-label">Students served</p>
+        </div>
+            <div class="stats-box">
+            <h3 class="stat-number" data-target="120">0</h3>
+            <p class="stat-label">Shared homes registered</p>
+            </div>
+            <div class="stats-box">
+              <h3 class="stat-number" data-target="8000">0</h3>
+              <p class="stat-label">Calendar events created </p>
+            </div>
+            <div class="stat-box">
+            <h3 class="stat-number" data-target="15000">0</h3>
+            <p class="stat-label">Messages sent</p>
+        </div>
+      </div>
+  </section>
+   
+    <div class="container-row">
+       <div class="text">
+        <i class="fas fa-comments" style="font-size:32px; color:#5100ff;"></i>
+        <h3 class="title">CONTACTS</h3>
+     On our website, tenants will have the ability to communicate directly with their landlords, addressing one of the most common issues in student housing: lack of effective communication. In many shared housing situations, important events, maintenance requests, or policy updates often occur without the landlord’s awareness, leading to misunderstandings and inefficiencies. By providing a dedicated platform for direct communication, our system ensures that both tenants and landlords are informed in real time. This feature promotes transparency, accountability, and a smoother living experience, ultimately fostering a more organized and harmonious community.
+       </div>
+
+       <div class="text">
+        <i class="fas fa-calendar-alt" style="font-size: 32px; color:#2600e5;"></i>
+        <h3 class="title">CALENDAR</h3>
+        Our platform also provides tools for scheduling, notifications, and community updates. Tenants can easily access important information about their residence, report issues, and stay informed about events, while landlords can manage their properties more efficiently. This streamlined communication ensures that everyone is on the same page, reducing conflicts and promoting a positive living environment.
+        </div>
+
+       <div class="text">
+        <i class="fas fa-credit-card" style="font-size: 32px; color: #0044ff ;"></i>
+        <h3 class="title">ACCESSIBILITY</h3>
+         Additionally, our website encourages fairness and equality in student housing. By providing accessible resources, clear guidelines, and direct contact options, we aim to create a community where students can enjoy a safe, organized, and supportive living space. Our goal is to make shared housing both manageable and enjoyable for everyone involved.
+       </div>
+
+    </div>
+
+   
+
+       
+    </section>
+
+    <footer class="footer">
+        
+        <p><strong>Email:</strong> Studenthousing@.help.com</p>
+
+        <p><strong>Phone:</strong> +359 888 000 000</p>
+        
+        <p>&copy; 2025 Buzarant Student Housing </p>
+    </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".stat-number");
+    const speed = 80;
+
+    const startCounting = () => {
+        counters.forEach(counter => {
+            let count = 0; // initialize count
+            const target = +counter.getAttribute("data-target");
+
+            const updateCount = () => {
+                const increment = Math.ceil(target / speed);
+
+                if (count < target) {
+                    count += increment;
+                    if (count > target) count = target;
+                    counter.innerText = count.toLocaleString();
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target.toLocaleString() + "+";
+                }
+            };
+            updateCount();
+        });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            startCounting();
+            obs.disconnect();
+        }
+    }, {threshold:0.5}); 
+    
+
+    observer.observe(document.querySelector(".stats-section"));
+});
+
+</script>
+</body>
+</html>
