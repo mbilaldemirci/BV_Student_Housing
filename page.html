@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendar - Student Housing</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Your shared CSS file -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- (Optional) Font Awesome, only if you need icons here too -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Calendar font (you can keep or remove if you want everything Arial) -->
+
+
+  <!-- Calendar logic -->
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- 🔹 NAVBAR FROM MAIN PAGE -->
+  <div class="navbar">
+    <div class="icon">
+      <h2 class="logo">Student housing</h2>
+    </div>
+
+    <div class="menu">
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#" class="active">CALENDAR</a></li>
+        <li><a href="#">MY HOUSE</a></li>
+        <li><a href="#">CHAT</a></li>
+        <li><a href="#">REGISTER</a></li>
+        <li><a href="#">LOG IN</a></li>
+      </ul>
+    </div>
+
+    <div class="search">
+      <input class="srch" type="search" placeholder="Type to text">
+      <button class="btn">Search</button>
+    </div>
+  </div>
+
+  <!-- 🔹 END NAVBAR -->
+
+  <!-- CALENDAR PAGE CONTENT -->
+  <main class="page">
+    <section class="calendar-card">
+      <!-- Legend with roommates -->
+      <div class="legend-row">
+        <div class="legend-item">
+          <span class="legend-dot legend-dot--r1"></span>
+          Roommate1
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot legend-dot--r2"></span>
+          Roommate2
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot legend-dot--r3"></span>
+          Roommate3
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot legend-dot--r4"></span>
+          Roommate4
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot legend-dot--r5"></span>
+          Roommate5
+        </div>
+      </div>
+
+      <!-- Calendar header (with arrows, JS fills month/year) -->
+      <header class="cal-header">
+        <div class="cal-month-number" id="monthNumber"></div>
+
+        <div class="cal-month-nav">
+          <button class="month-arrow" id="prevMonth" aria-label="Previous month">‹</button>
+          <div class="cal-month-name" id="monthName"></div>
+          <button class="month-arrow" id="nextMonth" aria-label="Next month">›</button>
+        </div>
+
+        <div class="cal-year" id="yearLabel"></div>
+      </header>
+
+      <!-- Calendar grid (JS will generate weekdays + days) -->
+      <section class="cal-grid" id="calendarGrid" aria-label="House calendar"></section>
+    </section>
+  </main>
+
+  <!-- Popup modal for viewing & adding tasks -->
+  <div class="modal-backdrop" id="taskModal">
+    <div class="modal">
+      <button type="button" class="modal-close" id="modalCloseBtn">&times;</button>
+
+      <h2 class="modal-title">Tasks for <span id="modalDateText"></span></h2>
+
+      <!-- existing tasks on that day -->
+      <div id="taskList" class="modal-task-list"></div>
+
+      <!-- divider line -->
+      <div class="modal-divider"></div>
+
+      <!-- add new task -->
+      <form id="taskForm">
+        <h3 class="modal-subtitle">Add new task</h3>
+
+        <label class="modal-field">
+          <span>Roommate</span>
+          <select id="roommateSelect" required>
+            <option value="Roommate1">Roommate1</option>
+            <option value="Roommate2">Roommate2</option>
+            <option value="Roommate3">Roommate3</option>
+            <option value="Roommate4">Roommate4</option>
+            <option value="Roommate5">Roommate5</option>
+          </select>
+        </label>
+
+        <label class="modal-field">
+          <span>Task</span>
+          <input type="text" id="taskInput" placeholder="e.g. Take out trash" required />
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn-primary" id="saveBtn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>
